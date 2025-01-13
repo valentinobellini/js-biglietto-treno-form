@@ -9,41 +9,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Calcolo prezzo biglietto</title>
 </head>
 
 <body>
 
-  
+
   <div class="container">
-  <h1>Calcola Il Prezzo Del Tuo Biglietto</h1>
-  <!-- Form per la raccolta dei dati -->
-  <form id="ticketForm">
-    <div>
-      <label for="distance">Distanza (km):</label>
-      <input id="distance" type="text" name="distance" placeholder="Inserisci il numero di kilometri" required>
-    </div>
+    <h1>Calcola Il Prezzo Del Tuo Biglietto</h1>
+    <!-- Form per la raccolta dei dati -->
+    <form id="ticketForm">
+      <div>
+        <label for="distance">Distanza (km):</label>
+        <input id="distance" type="text" name="distance" placeholder="Inserisci il numero di kilometri" required>
+      </div>
 
-    <div>
-      <label for="age">Età:</label>
-      <input id="age" type="text" name="age" placeholder="Inserisci l'età" required>
-    </div>
+      <div>
+        <label for="age">Età:</label>
+        <input id="age" type="text" name="age" placeholder="Inserisci l'età" required>
+      </div>
 
 
-    <button type="submit">Calcola</button>
-  </form>
+      <button type="submit">Calcola</button>
+    </form>
 
-</div>
+  </div>
+
+
 
 
   <!-- pannello output -->
-  <div  class="container">
+  <div class="container ">
     <div id="results">
 
       <div class="innerContainer">
         <h2>Prezzo Intero</h2>
         <p id="fullPrice" class="result"></p>
+      </div>
+
+      <div class="innerContainer">
+        <h2>Tipo Offerta</h2>
+        <p id="offerType" class="result"></p>
       </div>
 
       <div class="innerContainer">
@@ -58,6 +65,9 @@
 
     </div>
   </div>
+
+
+  <button id="darkModeToggle">Dark Mode</button>
 
 
   <script src="./js/script.js"></script>

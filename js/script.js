@@ -15,6 +15,7 @@ const ticketForm = document.getElementById("ticketForm");
 const fullPriceResult = document.getElementById("fullPrice");
 const discountResult = document.getElementById("discountValue");
 const finalPriceResult = document.getElementById("priceValue");
+const offerTypeResult = document.getElementById("offerType");
 
 
 
@@ -38,13 +39,16 @@ ticketForm.addEventListener("submit", (event) => {
 
     // verifico se l'età del cliente permette lo sconto
     let discount = 0;
+    let offerType = "/";
 
     // se l'età del cliente è inferiore a 18 applica sconto 20%
     if (ageInput.value < 18) {
         discount = price * 0.20
+        offerType = "Under 18";
         // se l'età del cliente è superiore a 65 applica sconto 40%
     } else if (ageInput.value > 65) {
         discount = price * 0.40
+        offerType = "Over 65";
     } else { discount = 0 }
 
     let finalPrice = price - discount;
@@ -59,13 +63,33 @@ ticketForm.addEventListener("submit", (event) => {
     fullPriceResult.innerHTML = `€${price.toFixed(2)}`;
     discountResult.innerHTML = `€${discount.toFixed(2)}`;
     finalPriceResult.innerHTML = `€${finalPrice.toFixed(2)}`;
+    offerTypeResult.innerHTML = offerType;
 
-    
+
     distanceInput.value = "";
     ageInput.value = "";
 });
 
 
 
+
+// toogle dark mode
+
+const darkModeToggle = document.getElementById("darkModeToggle");
+
+darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.querySelectorAll(".container").forEach(container => {
+        container.classList.toggle("dark-mode");
+    });
+    darkModeToggle.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        darkModeToggle.innerHTML = "Light Mode"
+    } else {
+        darkModeToggle.innerHTML = "Dark Mode"
+    }
+
+});
 
 
