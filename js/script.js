@@ -11,11 +11,19 @@
 const distanceInput = document.getElementById("distance");
 const ageInput = document.getElementById("age");
 const ticketForm = document.getElementById("ticketForm");
-const resultsDiv = document.getElementById("results");
+
+const fullPriceResult = document.getElementById("fullPrice");
+const discountResult = document.getElementById("discountValue");
+const finalPriceResult = document.getElementById("priceValue");
+
+
+
+
 
 // gestione evento click button
 ticketForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
 
     // converto i valori degli input in numeri
     const distance = parseInt(distanceInput.value);
@@ -48,11 +56,13 @@ ticketForm.addEventListener("submit", (event) => {
 
 
     //stampo i risultati in pagina
-    resultsDiv.innerHTML = `
-    <p>Prezzo intero: €${price.toFixed(2)}</p>
-    <p>Sconto: €${discount.toFixed(2)}</p>
-    <p>Prezzo finale: €${finalPrice.toFixed(2)}</p>
-    `;
+    fullPriceResult.innerHTML = `€${price.toFixed(2)}`;
+    discountResult.innerHTML = `€${discount.toFixed(2)}`;
+    finalPriceResult.innerHTML = `€${finalPrice.toFixed(2)}`;
+
+    
+    distanceInput.value = "";
+    ageInput.value = "";
 });
 
 

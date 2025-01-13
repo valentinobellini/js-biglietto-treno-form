@@ -5,27 +5,58 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
   <title>Calcolo prezzo biglietto</title>
 </head>
 
 <body>
 
-  <h1>Ticket Price Calculator</h1>
-
+  
+  <div class="container">
+  <h1>Calcola Il Prezzo Del Tuo Biglietto</h1>
   <!-- Form per la raccolta dei dati -->
   <form id="ticketForm">
-    <label for="distance">Distanza (km):</label>
-    <input id="distance" type="text" name="distance" placeholder="Inserisci il numero di kilometri" required>
+    <div>
+      <label for="distance">Distanza (km):</label>
+      <input id="distance" type="text" name="distance" placeholder="Inserisci il numero di kilometri" required>
+    </div>
 
-    <label for="age">Età:</label>
-    <input id="age" type="text" name="age" placeholder="Inserisci l'età" required>
+    <div>
+      <label for="age">Età:</label>
+      <input id="age" type="text" name="age" placeholder="Inserisci l'età" required>
+    </div>
+
 
     <button type="submit">Calcola</button>
   </form>
 
-  <div id="results">
+</div>
 
 
+  <!-- pannello output -->
+  <div  class="container">
+    <div id="results">
+
+      <div class="innerContainer">
+        <h2>Prezzo Intero</h2>
+        <p id="fullPrice" class="result"></p>
+      </div>
+
+      <div class="innerContainer">
+        <h2>Ammontare Sconto</h2>
+        <p id="discountValue" class="result"></p>
+      </div>
+
+      <div class="innerContainer">
+        <h2>Costo Biglietto</h2>
+        <p id="priceValue" class="result"></p>
+      </div>
+
+    </div>
   </div>
 
 
