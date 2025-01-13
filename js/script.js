@@ -14,7 +14,9 @@ const button = document.getElementById("button");
 
 
 // gestione evento click button
-button.addEventListener("click", () => {
+ticketForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
     console.log("distanza in km ", distanceInput.value, "età ", ageInput.value);
 
     // definisco il prezzo del biglietto
