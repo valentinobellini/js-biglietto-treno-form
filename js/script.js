@@ -10,26 +10,31 @@
 //selezioniamo gli elementi del DOM
 const distanceInput = document.getElementById("distance");
 const ageInput = document.getElementById("age");
-const button = document.getElementById("button");
-
+const ticketForm = document.getElementById("ticketForm");
+const resultsDiv = document.getElementById("results");
 
 // gestione evento click button
 ticketForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    console.log("distanza in km ", distanceInput.value, "età ", ageInput.value);
+    // converto i valori degli input in numeri
+    const distance = parseInt(distanceInput.value);
+    const age = parseInt(ageInput.value);
+
+    console.log("Distanza in km ", distance, "Età ", age);
 
     // definisco il prezzo del biglietto
-    let price = distanceInput.value * 0.21;
+    let price = distance * 0.21;
 
-    console.log("prezzo intero: € ", price);
+    console.log("Prezzo intero: €", parseInt(price.toFixed(2)));
 
     // verifico se l'età del cliente permette lo sconto
-    // se l'età del cliente è inferiore a 18 applica sconto 20%
     let discount = 0;
 
+    // se l'età del cliente è inferiore a 18 applica sconto 20%
     if (ageInput.value < 18) {
         discount = price * 0.20
+        // se l'età del cliente è superiore a 65 applica sconto 40%
     } else if (ageInput.value > 65) {
         discount = price * 0.40
     } else { discount = 0 }
@@ -37,9 +42,20 @@ ticketForm.addEventListener("submit", (event) => {
     let finalPrice = price - discount;
 
 
-    console.log("ammontare sconto: € ", discount);
+    console.log("Ammontare sconto: € ", discount.toFixed(2));
 
     console.log("Totale: € ", finalPrice.toFixed(2));
+
+
+    //stampo i risultati in pagina
+    resultsDiv.innerHTML = `
+    <p>Prezzo intero: €${price.toFixed(2)}</p>
+    <p>Sconto: €${discount.toFixed(2)}</p>
+    <p>Prezzo finale: €${finalPrice.toFixed(2)}</p>
+    `;
 });
+
+
+
 
 
